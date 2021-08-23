@@ -1,7 +1,7 @@
 # Dans_Locks
  Locking System for Redem:RP
  
- <h2> Using this Script
+ <h2> Using this Script </h2>
  
  For a basic 1 door lock, navigate to config.lua and in Config.DoorList copy and paste the following
  ```
