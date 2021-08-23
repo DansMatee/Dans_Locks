@@ -37,12 +37,12 @@
  To change the keybind used, simply go to config.lua, and change Config.KeyPress to a hash of your liking. Useful list can be found here -> 
  https://forum.cfx.re/t/keybind-hashes/1666877/2
  
- <h2> Required Resources
+ <h2> Required Resources </h2>
  RedEM:RP is required
  Forum Post -> https://forum.cfx.re/t/redem-roleplay-gamemode-the-roleplay-gamemode-for-redm/915043
  Github -> https://github.com/RedEM-RP/redem_roleplay
  
- <h2> Known Bug
+ <h2> Known Bug </h2>
   There is a bug in which I have been unable to solve, and that is getting the animations working on the UsePrompt config.
   
   Workarounds, comment out following lines
@@ -55,7 +55,7 @@
   
   I will be looking in to trying to fix this problem, but until then there is a temporary fix.
   
-  <h2> Credits
+  <h2> Credits </h2>
    
    A huge thank you to CryptoGenics for a base for me to work off of.
    
