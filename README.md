@@ -34,12 +34,12 @@
  
  To use the prompt that appears in the bottom right corner, simply go to config.lua and change Config.UsePrompt to your liking.
  
- To change the keybind used, simply go to config.lua, and change Config.KeyPress to a hash of your liking. Useful list can be found here -> 
+ To change the keybind used, simply go to config.lua, and change Config.KeyPress to a hash of your liking. Useful list can be found here -> <br>
  https://forum.cfx.re/t/keybind-hashes/1666877/2
  
  <h2> Required Resources </h2>
- RedEM:RP is required
- Forum Post -> https://forum.cfx.re/t/redem-roleplay-gamemode-the-roleplay-gamemode-for-redm/915043
+ RedEM:RP is required <br>
+ Forum Post -> https://forum.cfx.re/t/redem-roleplay-gamemode-the-roleplay-gamemode-for-redm/915043 <br>
  Github -> https://github.com/RedEM-RP/redem_roleplay
  
  <h2> Known Bug </h2>
@@ -60,7 +60,7 @@
    A huge thank you to CryptoGenics for a base for me to work off of.
    
    CryptoGenics -> https://github.com/CryptoGenics <br>
-   CryptoGenics Doorlock -> https://github.com/CryptoGenics/redemrp_doorlocks
+   CryptoGenics Doorlock -> https://github.com/CryptoGenics/redemrp_doorlocks <br>
    
-   Thank you to RedEM and RedEM:RP
+   Thank you to RedEM and RedEM:RP <br>
    RedEM:RP Discord -> https://discord.gg/JS82WmQ7nG
