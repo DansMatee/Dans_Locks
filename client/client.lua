@@ -20,7 +20,7 @@ end
 Citizen.CreateThread(function()
     SetupOpenPrompt()
     while true do
-        Citizen.Wait(0)
+        Citizen.Wait(1)
         local playerCoords, letSleep = GetEntityCoords(PlayerPedId()), true
 
         for k,doorID in ipairs(Config.DoorList) do
@@ -32,23 +32,27 @@ Citizen.CreateThread(function()
                 maxDistance = doorID.distance
             end
 
-            if distance < 20 then
+            if distance < 50 then
                 letSleep = false
 
                 if doorID.doors then
                     if doorID.locked then
                         for _,v in ipairs(doorID.doors) do
+                            Citizen.InvokeNative(0xD99229FE93B46286, v.doorHash , 1, 0, 0, 0, 0, 0)
                             DoorSystemSetDoorState(v.doorHash, 1)
                         end
                     else
                         for _,v in ipairs(doorID.doors) do
+                            Citizen.InvokeNative(0xD99229FE93B46286, v.doorHash , 1, 0, 0, 0, 0, 0)
                             DoorSystemSetDoorState(v.doorHash, 0)
                         end
                     end
                 else
                     if doorID.locked then
+                        Citizen.InvokeNative(0xD99229FE93B46286, doorID.doorHash , 1, 0, 0, 0, 0, 0)
                         DoorSystemSetDoorState(doorID.doorHash, 1)
                     else
+                        Citizen.InvokeNative(0xD99229FE93B46286, doorID.doorHash , 1, 0, 0, 0, 0, 0)
                         DoorSystemSetDoorState(doorID.doorHash, 0)
                     end
                 end
@@ -63,22 +67,7 @@ Citizen.CreateThread(function()
                             if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
                                 CoolDown = 1000
                                 local state = not doorID.locked
-                                local ped = PlayerPedId()
-                                if not HasAnimDictLoaded("script_common@jail_cell@unlock@key") then
-                                    local waiting = 0
-                                    RequestAnimDict("script_common@jail_cell@unlock@key")
-                                    while not HasAnimDictLoaded("script_common@jail_cell@unlock@key") do
-                                        Citizen.Wait(100)
-                                        RequestAnimDict("script_common@jail_cell@unlock@key")
-                                    end
-                                end
-                                    Wait(100)
-                                TaskPlayAnim(ped, 'script_common@jail_cell@unlock@key', 'action', 8.0, -8.0, 2500, 31, 0, true, 0, false, 0, false)
-                                RemoveAnimDict("script_common@jail_cell@unlock@key")
-                                    Wait(1500)
                                 TriggerServerEvent('dans_locks:server:updateState', GetPlayerServerId(), k, state)
-                                    Wait(100)
-                                ClearPedSecondaryTask(ped)
                             end
                         else
                             local label = CreateVarString(10, 'LITERAL_STRING', "Lock")
@@ -86,44 +75,14 @@ Citizen.CreateThread(function()
                             if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
                                 CoolDown = 1000
                                 local state = not doorID.locked
-                                local ped = PlayerPedId()
-                                if not HasAnimDictLoaded("script_common@jail_cell@unlock@key") then
-                                    local waiting = 0
-                                    RequestAnimDict("script_common@jail_cell@unlock@key")
-                                    while not HasAnimDictLoaded("script_common@jail_cell@unlock@key") do
-                                        Citizen.Wait(100)
-                                        RequestAnimDict("script_common@jail_cell@unlock@key")
-                                    end
-                                end
-                                    Wait(100)
-                                TaskPlayAnim(ped, 'script_common@jail_cell@unlock@key', 'action', 8.0, -8.0, 2500, 31, 0, true, 0, false, 0, false)
-                                RemoveAnimDict("script_common@jail_cell@unlock@key")
-                                    Wait(1500)
                                 TriggerServerEvent('dans_locks:server:updateState', GetPlayerServerId(), k, state)
-                                    Wait(100)
-                                ClearPedSecondaryTask(ped)
                             end
                         end
                     else
                         if IsControlJustPressed(0, Config.KeyPress) and CoolDown < 1 then
                             CoolDown = 1000
-                            local state = not doorID.locked  
-                            local ped = PlayerPedId()
-                            if not HasAnimDictLoaded("script_common@jail_cell@unlock@key") then
-                                local waiting = 0
-                                RequestAnimDict("script_common@jail_cell@unlock@key")
-                                while not HasAnimDictLoaded("script_common@jail_cell@unlock@key") do
-                                    Citizen.Wait(100)
-                                    RequestAnimDict("script_common@jail_cell@unlock@key")
-                                end
-                            end
-                                Wait(100)
-                            TaskPlayAnim(ped, 'script_common@jail_cell@unlock@key', 'action', 8.0, -8.0, 2500, 31, 0, true, 0, false, 0, false)
-                            RemoveAnimDict("script_common@jail_cell@unlock@key")
-                                    Wait(1500)                         
+                            local state = not doorID.locked            
                             TriggerServerEvent('dans_locks:server:updateState', GetPlayerServerId(), k, state)
-                                Wait(100)
-                            ClearPedSecondaryTask(ped)
                         end
                     end
                 end
